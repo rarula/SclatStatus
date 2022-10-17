@@ -1,0 +1,2 @@
+# SclatStatus
+Sclatのオンライン人数を簡単に確認できるようにするDiscord Bot
