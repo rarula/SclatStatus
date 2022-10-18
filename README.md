@@ -10,7 +10,7 @@ Discord Botのステータスに現在のSclatのオンライン人数を表示�
 https://discord.com/api/oauth2/authorize?client_id=1031499472091484190&permissions=0&scope=bot
 
 ## 連絡
-https://twitter.com/rarula_
+<https://twitter.com/rarula_>
 
 ## ライセンス
 [MIT](LICENSE)
