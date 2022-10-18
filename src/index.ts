@@ -1,31 +1,20 @@
 import 'dotenv/config';
+import express, { Request, Response } from 'express';
 
-import { Client } from 'discord.js';
+import { setupBot } from './bot';
 
-import { fetchPlayerCount } from './fetch';
+// バージョン情報
+export const VERSION = 'v1.0.0';
 
-const VERSION = 'v1.0.0';
-const INTERVAL_SEC = 10.0;
+// botを起動
+setupBot();
 
-async function intervalCallback(): Promise<void> {
-    const status = await fetchPlayerCount();
+const app = express();
 
-    client.user?.setActivity({
-        name: status
-            ? `現在 ${status.games.jg.modes.sclat}人がプレイ中 | ${VERSION} `
-            : `エラーが発生しました | ${VERSION} `,
-    });
-}
-
-const client = new Client({
-    intents: [],
+app.get('/', (req: Request, res: Response) => {
+    res.send({ version: VERSION });
 });
 
-// intervalの設定
-client.on('ready', () => {
-    intervalCallback();
-    setInterval(intervalCallback.bind(this), INTERVAL_SEC * 1000);
+app.listen(3000, () => {
+    console.log('Start on port 3000.');
 });
-
-// botの起動
-client.login(process.env.BOT_TOKEN);
