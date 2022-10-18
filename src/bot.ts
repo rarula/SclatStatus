@@ -4,7 +4,7 @@ import { VERSION } from '.';
 import { fetchPlayerCount } from './fetch';
 
 // intervalの遅延間隔 (秒)
-const INTERVAL_SEC = 10.0;
+const INTERVAL_SEC = 60.0;
 
 // clientの設定
 const CLIENT = new Client({
